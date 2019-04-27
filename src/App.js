@@ -12,11 +12,10 @@ class App extends Component {
 
   //Your code here:
 
-
-
-
-
-
+  // called after render():
+componentDidMount() {
+  this.handleAddTimer()
+}
 
 
 
