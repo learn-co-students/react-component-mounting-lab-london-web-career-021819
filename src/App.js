@@ -9,33 +9,27 @@ class App extends Component {
     timerIDs: []
   }
 
+componentDidMount() {
+  this.handleAddTimer()
+}
 
-  //Your code here:
+componentWillUnmount() {
+  console.log('Unmounted')
+  clearInterval(this.interval)
+}
 
+render() {
+  return (
+    <div className="App">
+      <h1>MultiTimer</h1>
+      <button onClick={this.handleAddTimer}>Add New Timer</button>
 
-
-
-
-
-
-
-
-  // No need to modify anything in render or the class methods below
-  // Unless, of course, you're curious about how it all works
-  render() {
-
-    return (
-      <div className="App">
-        <h1>MultiTimer</h1>
-        <button onClick={this.handleAddTimer}>Add New Timer</button>
-
-        <div className="TimerGrid">
-          {this.renderTimers()}
-        </div>
-
+      <div className="TimerGrid">
+        {this.renderTimers()}
       </div>
-    );
-  }
+
+    </div>
+) }
 
   // returns array of components written in JSX, mapped from this.state.timerIDs
   renderTimers = () => this.state.timerIDs.map(id => {
